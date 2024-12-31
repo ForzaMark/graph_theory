@@ -9,8 +9,8 @@ rank          | 101           | 301
 
 #### Without later nx.isomorphism check
 
-edge count    |             | 
-vertex count  |             | 
-vertex degree |             | 
-algebraic con |             | 
-rank          |             |
+edge count    | 4            | 17
+vertex count  | 4            | 17
+vertex degree | 4            | 17
+algebraic con | 4            | 17
+rank          | 4            | 17
