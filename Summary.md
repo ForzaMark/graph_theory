@@ -32,6 +32,7 @@ iteration | runtime | partitions found
 5         | 399     | 311
 
 => as our reaction center graphs are usually very small the iterations parameter can be chosen small as well
+=> it is chosen 1 now
 
 # hierarchical clustered
 
@@ -40,11 +41,6 @@ iteration | runtime | partitions found
     1. edge count
     2. vertex degree
     3. weisf-lehm
-- found partitions per iteration
-    1. 17
-    2. 40
-    3. 310
-- runtime: 54 sec 
 
 ## Approach 2:
 - invariant functions
@@ -53,13 +49,6 @@ iteration | runtime | partitions found
     3. edge count
     4. vertex degree
     5. weisf-lehm
-- found partitions per iteration
-    1. 10
-    2. 27
-    3. 51
-    4. 80
-    5. 282
-- runtime: 30 sec
 
 ## Approach 3:
 - invariant functions
@@ -86,3 +75,4 @@ Approach | runtime | found partitions
 
 - all notebooks as scripts and check if they are properly executable
 - what makes algebraic_connectivity invariant so slow?
+- How to check the quality of the partitioning
