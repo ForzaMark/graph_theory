@@ -58,13 +58,38 @@ iteration | runtime | partitions found
     4. rank
     5. weisf-lehm
 
+## Approach 4: 
+- invariant functions:
+    1. vertex count
+    2. weisf-lehm
 
-## Summary of Approaches
+## Approach 5:
+- invariant functions
+    1. vertex count
+    2. edge count
+
+
+## Summary of Approaches (without later nx.isomorphism check)
 
 Approach | runtime | found partitions 
 1        | 54      | 310
 2        | 30      | 282
 3        | 9       | 239
+
+## Summary of Approaches
+- the nx.isomorphism check is needed later as this is the baseline
+- baseline finds 301 partitions in 86 seconds
+
+Approach | runtime  | found partitions 
+1        | 70       | 337
+2        | 39       | 377
+3        | 17       | 345
+4        | 63       | 366
+5        | 18       | 235
+
+# GOTCHAS:
+- only the runtime is important
+
 
 # Open Todos:
 - ~~check how many parititions are created by just using the invariant clustering and not nx isomorphism check~~
@@ -73,6 +98,4 @@ Approach | runtime | found partitions
 - double check vertex degree invariant implementation
 - implement more invariants
 
-- all notebooks as scripts and check if they are properly executable
 - what makes algebraic_connectivity invariant so slow?
-- How to check the quality of the partitioning

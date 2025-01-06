@@ -13,4 +13,4 @@ def get_reaction_center_old(its_graph):
     return nx.induced_subgraph(its_graph, reaction_center_nodes)
 
 def get_reaction_center(graph):
-    return get_rc(graph)
+    return nx.edge_subgraph(graph, [(e[0], e[1]) for e in graph.edges(data=True) if e[2]["standard_order"] != 0])
