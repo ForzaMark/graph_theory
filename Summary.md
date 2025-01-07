@@ -78,14 +78,14 @@ Approach | runtime | found partitions
 
 ## Summary of Approaches
 - the nx.isomorphism check is needed later as this is the baseline
-- baseline finds 301 partitions in 86 seconds
+- baseline finds 299 partitions in 120 seconds
 
 Approach | runtime  | found partitions 
-1        | 70       | 337
-2        | 39       | 377
-3        | 17       | 345
-4        | 63       | 366
-5        | 18       | 235
+1        | 16       | 277
+2        | 39       | 304
+3        | 12       | 231
+4        | 65       | 353
+5        | 14       | 220
 
 # GOTCHAS:
 - only the runtime is important
@@ -99,3 +99,4 @@ Approach | runtime  | found partitions
 - implement more invariants
 
 - what makes algebraic_connectivity invariant so slow?
+- inspect what is the difference between the 301 and 299 clusters found when using different initialisations for node_match and edge_match
