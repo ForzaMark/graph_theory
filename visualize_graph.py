@@ -1,6 +1,6 @@
 from synutility.SynVis.graph_visualizer import GraphVisualizer
 import matplotlib.pyplot as plt
-from get_reaction_center import get_reaction_center
+from get_reaction_center import get_reaction_center, get_reaction_center_old
 
 def visualize_graph(its_graph, with_reaction_center = True):
     fig, ax = plt.subplots(2, 1, figsize = (25, 20 ))

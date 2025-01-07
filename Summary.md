@@ -81,11 +81,11 @@ Approach | runtime | found partitions
 - baseline finds 299 partitions in 120 seconds
 
 Approach | runtime  | found partitions 
-1        | 16       | 277
-2        | 39       | 304
-3        | 12       | 231
-4        | 65       | 353
-5        | 14       | 220
+1        | 62       | 299
+2        | 83       | 299
+3        | 81       | 299
+4        | 62       | 299
+5        | 93       | 299
 
 # GOTCHAS:
 - only the runtime is important

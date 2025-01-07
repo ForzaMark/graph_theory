@@ -35,3 +35,33 @@ def vertex_degree_invariant(reaction_center, partition_representant_reaction_cen
     partition_representant_degrees = sorted([degree for node, degree in list(partition_representant_reaction_center.degree)])
 
     return reaction_center_degrees == partition_representant_degrees
+
+def av_length_invariant(reaction_center, partition_representant_reaction_center):
+    if nx.is_connected(reaction_center) and nx.is_connected(partition_representant_reaction_center):
+        avg_path_length_reaction_center = nx.average_shortest_path_length(reaction_center)
+        avg_path_length_partition_representant = nx.average_shortest_path_length(partition_representant_reaction_center)
+
+        return isclose(avg_path_length_reaction_center, avg_path_length_partition_representant, rel_tol=1e-6)
+    else:
+        return True
+
+def global_clustering_invariant(reaction_center, partition_representant_reaction_center):
+    global_clustering_reaction_center = nx.transitivity(reaction_center)
+    global_clustering_partition_representant = nx.transitivity(partition_representant_reaction_center)
+
+    return isclose(global_clustering_reaction_center,global_clustering_partition_representant , rel_tol=1e-6)
+
+def graph_diameter_invariant(reaction_center, partition_representant_reaction_center):
+    if nx.is_connected(reaction_center) and nx.is_connected(partition_representant_reaction_center):
+        reaction_center_diameter = nx.diameter(reaction_center)
+        partition_representant_reaction_center_diameter = nx.diameter(partition_representant_reaction_center)
+
+        return reaction_center_diameter == partition_representant_reaction_center_diameter
+    else:
+        return True
+
+def graph_girth_invariant(reaction_center, partition_representant_reaction_center):
+    reaction_center_girth = nx.girth(reaction_center)
+    partition_representant_reaction_center_girth = nx.girth(partition_representant_reaction_center)
+
+    return reaction_center_girth == partition_representant_reaction_center_girth
