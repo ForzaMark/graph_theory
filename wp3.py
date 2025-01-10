@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
     for invariant_config_index, invariant_config in enumerate(invariant_combinations):
 
-        start_time = time.time()
+        complete_start_time = time.time()
 
         for invariant_index in range(0, len(invariant_config.values())):
             invariant_check_function = invariant_config[invariant_index]
@@ -46,19 +46,24 @@ if __name__ == "__main__":
                 partitions = all_sub_partitions
 
             print(f"{invariant_index}'s partition length = {len(partitions)}")
-
+        
+        pre_filtering_end_time = time.time()
         overall_partitions = []
 
         for pre_filtered_partition in partitions:
             p = cluster_reaction_centers(pre_filtered_partition)
             overall_partitions = overall_partitions + p 
 
-        end_time = time.time()
+        complete_end_time = time.time()
 
-        elapsed_time = end_time - start_time
-        print(f"###Invariant Config {invariant_config_index}###")
-        print(f"Time elapsed: {elapsed_time:.2f} seconds")
+        complete_elapsed_time = complete_end_time - complete_start_time
+        prefiltering_elapsed_time = pre_filtering_end_time - complete_start_time
+        print(f"###Invariant Config ###")
+        print(invariant_config)
 
-        print(f"Partitions via invariants found: {len(partitions)}")
+        print(f"Time elapsed pre: {prefiltering_elapsed_time:.2f} seconds")
+        print(f"Partitions via invariants found pre: {len(partitions)}")
+
+        print(f"Time elapsed complete: {complete_elapsed_time:.2f} seconds")
         print(f"Partitions finally found: {len(overall_partitions)}")
         print("#########################################")

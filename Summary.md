@@ -68,6 +68,17 @@ iteration | runtime | partitions found
     1. vertex count
     2. edge count
 
+## Approach 6: 
+- invariant functions
+    1. vertex count
+    2. average length
+    3. weisfeiler lehman
+
+## Approach 7:
+- invariant functions
+    1. vertex degree
+    2. average length
+    3. weisf lehm
 
 ## Summary of Approaches (without later nx.isomorphism check)
 
@@ -86,6 +97,8 @@ Approach | runtime  | found partitions
 3        | 81       | 299
 4        | 62       | 299
 5        | 93       | 299
+6        | 65       | 299
+7        | 66       | 299
 
 # GOTCHAS:
 - only the runtime is important
@@ -99,4 +112,12 @@ Approach | runtime  | found partitions
 - implement more invariants
 
 - what makes algebraic_connectivity invariant so slow?
-- inspect what is the difference between the 301 and 299 clusters found when using different initialisations for node_match and edge_match
+
+### good working
+- 46 sec: vertex count, vertex degree, weisfeiler lehm
+
+### Präsentation
+- Plots with runtime of clustering with nx.isomorphisnm solely vs. preclustering by invariants and later check
+    - show how many partitions are already found by just the invariant checks
+- Erklärung unseres Ansatzes der Weisfeiler-Lehman Konvergenz in Iteration 2
+    - WF konvergiert wenn Elementen-Histogram gleich bleibt
