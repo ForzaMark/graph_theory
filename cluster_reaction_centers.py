@@ -14,6 +14,8 @@ from networkx.algorithms.isomorphism import generic_node_match, numerical_edge_m
 
 def can_find_isomorphic_partition(partitions, reaction_center):
     for index, partition in enumerate(partitions):
+        # TODO: mheimer remove 1 index here as well
+        #partition_representant = partition[0][1]
         partition_representant = partition[0]
 
         rc_partition_representant = get_reaction_center(partition_representant)
@@ -30,12 +32,14 @@ def can_find_isomorphic_partition(partitions, reaction_center):
 def cluster_reaction_centers(set_of_reactions):
     partitions = []
 
-    for reaction_its in set_of_reactions:
+    # TODO mheimer: remove the enumeration here
+    for index, reaction_its in enumerate(set_of_reactions):
         rc_reaction = get_reaction_center(reaction_its)
 
         isomorphic_partition_index = can_find_isomorphic_partition(partitions, rc_reaction)
 
         if type(isomorphic_partition_index) is int:
+            #partitions[isomorphic_partition_index].append((index, reaction_its))
             partitions[isomorphic_partition_index].append(reaction_its)
         else:
             partitions.append([reaction_its])
