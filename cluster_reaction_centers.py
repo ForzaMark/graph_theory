@@ -16,10 +16,10 @@ def can_find_isomorphic_partition(partitions, reaction_center):
     for index, partition in enumerate(partitions):
         partition_representant = partition[0]
 
-        rc_partition_representant = get_reaction_center(partition_representant)
+        #rc_partition_representant = get_reaction_center(partition_representant)
 
         if nx.is_isomorphic(reaction_center, 
-                            rc_partition_representant, 
+                            partition_representant, 
                             edge_match=lambda n1, n2: n1["order"] == n2["order"], 
                             node_match=lambda n1, n2: n1["charge"] == n2["charge"] and n1["element"] == n2["element"]):
             return index
@@ -27,17 +27,16 @@ def can_find_isomorphic_partition(partitions, reaction_center):
     return False
 
 
-def cluster_reaction_centers(set_of_reactions):
+def cluster_reaction_centers(set_of_reaction_centers):
     partitions = []
 
-    for reaction_its in set_of_reactions:
-        rc_reaction = get_reaction_center(reaction_its)
+    for reaction_centers in set_of_reaction_centers:
 
-        isomorphic_partition_index = can_find_isomorphic_partition(partitions, rc_reaction)
+        isomorphic_partition_index = can_find_isomorphic_partition(partitions, reaction_centers)
 
         if type(isomorphic_partition_index) is int:
-            partitions[isomorphic_partition_index].append(reaction_its)
+            partitions[isomorphic_partition_index].append(reaction_centers)
         else:
-            partitions.append([reaction_its])
+            partitions.append([reaction_centers])
 
     return partitions

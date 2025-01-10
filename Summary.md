@@ -98,5 +98,4 @@ Approach | runtime  | found partitions
 - double check vertex degree invariant implementation
 - implement more invariants
 
-- what makes algebraic_connectivity invariant so slow?
-- inspect what is the difference between the 301 and 299 clusters found when using different initialisations for node_match and edge_match
+- what makes algebraic_connectivity invariant so slow
