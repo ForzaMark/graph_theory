@@ -1,6 +1,7 @@
 import networkx as nx
 from math import isclose
 import numpy as np
+from own_weisfeiler_leman import weisfeiler_leman_one_iteration, hash_distribution_has_changed, weisfeiler_leman_with_convergence
 
 def edge_count_invariant(reaction_center, partition_representant_reaction_center):
     edge_count_reaction_center = len(reaction_center.edges)
@@ -65,3 +66,15 @@ def graph_girth_invariant(reaction_center, partition_representant_reaction_cente
     partition_representant_reaction_center_girth = nx.girth(partition_representant_reaction_center)
 
     return reaction_center_girth == partition_representant_reaction_center_girth
+
+def own_weisfeiler_leman_convergence_invariant(reaction_center, partition_representant_reaction_center):
+    reaction_center_wl = weisfeiler_leman_with_convergence(reaction_center)["hash"]
+    representant_center_wl = weisfeiler_leman_with_convergence(partition_representant_reaction_center)["hash"]
+
+    return not hash_distribution_has_changed(reaction_center_wl, representant_center_wl)
+
+def own_weisfeiler_leman_one_iteration_invariant(reaction_center, partition_representant_reaction_center):
+    reaction_center_wl = weisfeiler_leman_one_iteration(reaction_center)["hash"]
+    representant_center_wl = weisfeiler_leman_one_iteration(partition_representant_reaction_center)["hash"]
+
+    return not hash_distribution_has_changed(reaction_center_wl, representant_center_wl)

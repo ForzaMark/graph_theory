@@ -5,11 +5,6 @@ from synutility.SynIO.data_type import load_from_pickle
 from invariant_combinations import invariant_combinations
 
 
-# vertex-invariant = 299 partitions
-# vertex and edge count = 167 partitions
-# weisfeiler lehman = 299 partitions
-# vertex count and weisfeiler lehman = 353 partitions
-
 def aggregate_charge_and_element_attributes(reaction):
     for node, attributes in reaction.nodes.data():
         attributes["element_charge"] = f"{attributes['element']}{attributes['charge']}"
@@ -17,7 +12,7 @@ def aggregate_charge_and_element_attributes(reaction):
     return reaction
 
 def load_reactions():
-    data = load_from_pickle("/home/mark/Documents/graph_theory/ITS_graphs.pkl.gz")
+    data = load_from_pickle("C:/Users/Mark/Documents/graph_theory/ITS_graphs.pkl.gz")
     reactions = [reaction["ITS"] for reaction in data]
     reactions = [aggregate_charge_and_element_attributes(reaction) for reaction in reactions]
 
