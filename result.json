@@ -1,0 +1,209 @@
+{
+  "wp2": { "partitions_found": 299, "time_elapsed": 211.43523383140564 },
+  "wp3": [
+    {
+      "invariant_config": [
+        [0, "edge_count_invariant"],
+        [1, "vertex_degree_invariant"],
+        [2, "weisfeiler_lehman_invariant"]
+      ],
+      "partition_development": [
+        {
+          "number_of_partitions": 16,
+          "time_elapsed_by_this_invariant": 7.254577398300171
+        },
+        {
+          "number_of_partitions": 57,
+          "time_elapsed_by_this_invariant": 6.034825325012207
+        },
+        {
+          "number_of_partitions": 296,
+          "time_elapsed_by_this_invariant": 80.9452977180481
+        }
+      ],
+      "prefiltering_elapsed_time": 94.23470044136047,
+      "complete_elapsed_time": 122.99201393127441,
+      "partitions_found": 299
+    },
+    {
+      "invariant_config": [
+        [0, "rank_invariant"],
+        [1, "vertex_count_invariant"],
+        [2, "edge_count_invariant"],
+        [3, "vertex_degree_invariant"],
+        [4, "weisfeiler_lehman_invariant"]
+      ],
+      "partition_development": [
+        {
+          "number_of_partitions": 10,
+          "time_elapsed_by_this_invariant": 29.71814775466919
+        },
+        {
+          "number_of_partitions": 30,
+          "time_elapsed_by_this_invariant": 3.4639296531677246
+        },
+        {
+          "number_of_partitions": 53,
+          "time_elapsed_by_this_invariant": 5.58760404586792
+        },
+        {
+          "number_of_partitions": 68,
+          "time_elapsed_by_this_invariant": 5.58505392074585
+        },
+        {
+          "number_of_partitions": 299,
+          "time_elapsed_by_this_invariant": 81.28888082504272
+        }
+      ],
+      "prefiltering_elapsed_time": 125.64361619949341,
+      "complete_elapsed_time": 156.79792833328247,
+      "partitions_found": 299
+    },
+    {
+      "invariant_config": [
+        [0, "vertex_count_invariant"],
+        [1, "edge_count_invariant"],
+        [2, "vertex_degree_invariant"],
+        [3, "rank_invariant"],
+        [4, "weisfeiler_lehman_invariant"]
+      ],
+      "partition_development": [
+        {
+          "number_of_partitions": 12,
+          "time_elapsed_by_this_invariant": 3.8552849292755127
+        },
+        {
+          "number_of_partitions": 31,
+          "time_elapsed_by_this_invariant": 5.808262586593628
+        },
+        {
+          "number_of_partitions": 57,
+          "time_elapsed_by_this_invariant": 5.737951278686523
+        },
+        {
+          "number_of_partitions": 68,
+          "time_elapsed_by_this_invariant": 24.825512409210205
+        },
+        {
+          "number_of_partitions": 299,
+          "time_elapsed_by_this_invariant": 80.60166335105896
+        }
+      ],
+      "prefiltering_elapsed_time": 120.82867455482483,
+      "complete_elapsed_time": 149.7153742313385,
+      "partitions_found": 299
+    },
+    {
+      "invariant_config": [
+        [0, "vertex_count_invariant"],
+        [1, "weisfeiler_lehman_invariant"]
+      ],
+      "partition_development": [
+        {
+          "number_of_partitions": 12,
+          "time_elapsed_by_this_invariant": 3.804525852203369
+        },
+        {
+          "number_of_partitions": 296,
+          "time_elapsed_by_this_invariant": 90.40610456466675
+        }
+      ],
+      "prefiltering_elapsed_time": 94.21063041687012,
+      "complete_elapsed_time": 123.37729549407959,
+      "partitions_found": 299
+    },
+    {
+      "invariant_config": [
+        [0, "vertex_count_invariant"],
+        [1, "edge_count_invariant"]
+      ],
+      "partition_development": [
+        {
+          "number_of_partitions": 12,
+          "time_elapsed_by_this_invariant": 3.827021837234497
+        },
+        {
+          "number_of_partitions": 31,
+          "time_elapsed_by_this_invariant": 5.800394296646118
+        }
+      ],
+      "prefiltering_elapsed_time": 9.627416133880615,
+      "complete_elapsed_time": 193.88469767570496,
+      "partitions_found": 299
+    },
+    {
+      "invariant_config": [
+        [0, "vertex_count_invariant"],
+        [1, "av_length_invariant"],
+        [2, "weisfeiler_lehman_invariant"]
+      ],
+      "partition_development": [
+        {
+          "number_of_partitions": 12,
+          "time_elapsed_by_this_invariant": 3.825967311859131
+        },
+        {
+          "number_of_partitions": 58,
+          "time_elapsed_by_this_invariant": 15.277385950088501
+        },
+        {
+          "number_of_partitions": 299,
+          "time_elapsed_by_this_invariant": 84.11473107337952
+        }
+      ],
+      "prefiltering_elapsed_time": 103.21808433532715,
+      "complete_elapsed_time": 132.1503233909607,
+      "partitions_found": 299
+    },
+    {
+      "invariant_config": [
+        [0, "vertex_degree_invariant"],
+        [1, "av_length_invariant"],
+        [2, "weisfeiler_lehman_invariant"]
+      ],
+      "partition_development": [
+        {
+          "number_of_partitions": 57,
+          "time_elapsed_by_this_invariant": 9.814001083374023
+        },
+        {
+          "number_of_partitions": 71,
+          "time_elapsed_by_this_invariant": 13.463940620422363
+        },
+        {
+          "number_of_partitions": 299,
+          "time_elapsed_by_this_invariant": 80.28288698196411
+        }
+      ],
+      "prefiltering_elapsed_time": 103.5608286857605,
+      "complete_elapsed_time": 132.43990755081177,
+      "partitions_found": 299
+    }
+  ],
+  "wp4": [
+    {
+      "invariant_config": [[0, "own_weisfeiler_leman_convergence_invariant"]],
+      "partition_development": [
+        {
+          "number_of_partitions": 233,
+          "time_elapsed_by_this_invariant": 166.04155564308167
+        }
+      ],
+      "prefiltering_elapsed_time": 166.04155564308167,
+      "complete_elapsed_time": 198.7558810710907,
+      "partitions_found": 299
+    },
+    {
+      "invariant_config": [[0, "own_weisfeiler_leman_one_iteration_invariant"]],
+      "partition_development": [
+        {
+          "number_of_partitions": 268,
+          "time_elapsed_by_this_invariant": 93.63247489929199
+        }
+      ],
+      "prefiltering_elapsed_time": 93.63247489929199,
+      "complete_elapsed_time": 126.09849071502686,
+      "partitions_found": 299
+    }
+  ]
+}

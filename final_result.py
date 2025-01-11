@@ -4,6 +4,7 @@ from cluster_reaction_centers import cluster_reaction_centers
 from invariant_combinations import invariant_combinations
 from util import load_reactions
 from invariants import own_weisfeiler_leman_convergence_invariant, own_weisfeiler_leman_one_iteration_invariant
+import json
 
 def wp2(reactions):
     wp2_start_time = time.time()
@@ -13,7 +14,7 @@ def wp2(reactions):
     wp2_end_time = time.time()
 
     return {
-        "partitions_found": wp2_partitions,
+        "partitions_found": len(wp2_partitions),
         "time_elapsed": wp2_end_time - wp2_start_time
     }
 
@@ -57,7 +58,7 @@ def wp3(reactions, invariant_combinations):
         prefiltering_elapsed_time = pre_filtering_end_time - complete_start_time
 
         result.append({
-            "invariant_config": invariant_config,
+            "invariant_config": [(key, value.__name__) for key, value in invariant_config.items()],
             "partition_development": partition_development,
             "prefiltering_elapsed_time": prefiltering_elapsed_time,
             "complete_elapsed_time": complete_elapsed_time,
@@ -71,9 +72,13 @@ if __name__ == "__main__":
 
     # WP2
     wp2_results = wp2(reactions)
+    print('########WP2############')
+    print(wp2_results)
 
     # WP3
     wp3_results = wp3(reactions, invariant_combinations)
+    print('########WP3############')
+    print(wp3_results)
 
     # WP4
     own_weisfeiler_leman_invariant_combination = [
@@ -85,15 +90,17 @@ if __name__ == "__main__":
         }
     ]
     wp4_results = wp3(reactions, own_weisfeiler_leman_invariant_combination)
-
-    print('########WP2############')
-    print(wp2_results)
-
-    print('########WP3############')
-    print(wp3_results)
-
     print('########WP4############')
     print(wp4_results)
+
+    
+    with open('result2.json', 'w') as fp:
+        json.dump({
+            "wp2": wp2_results,
+            "wp3": wp3_results,
+            "wp4": wp4_results
+        }, fp)
+
     
 
     
