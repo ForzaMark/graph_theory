@@ -121,3 +121,5 @@ Approach | runtime  | found partitions
     - show how many partitions are already found by just the invariant checks
 - Erklärung unseres Ansatzes der Weisfeiler-Lehman Konvergenz in Iteration 2
     - WF konvergiert wenn Elementen-Histogram gleich bleibt
+- TODO: invariant that compares bond type and elements
+- Visualization Idea: Show all Invariant Combinations that already find all of the cluster

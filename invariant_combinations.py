@@ -1,71 +1,78 @@
-from invariants import edge_count_invariant, vertex_count_invariant, weisfeiler_lehman_invariant, rank_invariant, vertex_degree_invariant, global_clustering_invariant, av_length_invariant, graph_diameter_invariant, graph_girth_invariant
+from invariants import edge_count_invariant, vertex_count_invariant, weisfeiler_lehman_invariant, rank_invariant, vertex_degree_invariant, av_length_invariant, own_weisfeiler_leman_convergence_invariant, own_weisfeiler_leman_one_iteration_invariant
 
-invariant_combinations_old = [
-    {
-        0: edge_count_invariant,
-        1: vertex_degree_invariant,
-        2: weisfeiler_lehman_invariant
-    },
-    {
-        0: rank_invariant,
-        1: vertex_count_invariant,
-        2: edge_count_invariant,
-        3: vertex_degree_invariant,
-        4: weisfeiler_lehman_invariant
-    },
+invariant_combinations_without_wl = [
     {
         0: vertex_count_invariant,
-        1: edge_count_invariant,
-        2: vertex_degree_invariant,
-        3: rank_invariant,
-        4: weisfeiler_lehman_invariant
     },
     {
-        0: vertex_count_invariant,
-        1: weisfeiler_lehman_invariant
+        0: vertex_degree_invariant,
     },
     {
         0: vertex_count_invariant,
         1: edge_count_invariant
     },
     {
-        0: vertex_count_invariant,
-        1: av_length_invariant,
-        2: weisfeiler_lehman_invariant
-    },
-    {
         0: vertex_degree_invariant,
         1: av_length_invariant,
-        2: weisfeiler_lehman_invariant
+    },
+    {
+        0: edge_count_invariant,
+        1: vertex_degree_invariant
+    },
+    {
+        0: edge_count_invariant,
+        1: av_length_invariant
+    },
+    {
+        0: vertex_count_invariant,
+        1: edge_count_invariant,
+        2: vertex_degree_invariant
+    },
+    {
+        0: vertex_count_invariant,
+        1: edge_count_invariant,
+        2: av_length_invariant
+    },
+    {
+        0: vertex_count_invariant,
+        1: edge_count_invariant,
+        2: rank_invariant
+    },
+    {
+        0: vertex_count_invariant,
+        1: vertex_degree_invariant,
+        2: av_length_invariant
+    },
+    {
+        0: rank_invariant,
+        1: vertex_count_invariant,
+        2: edge_count_invariant,
+        3: vertex_degree_invariant,
+    },
+    {
+        0: vertex_count_invariant,
+        1: edge_count_invariant,
+        2: vertex_degree_invariant,
+        3: rank_invariant,
+    },
+    {
+        0: vertex_count_invariant,
+        1: edge_count_invariant,
+        2: vertex_degree_invariant,
+        3: av_length_invariant
     }
 ]
 
-import random
-
-fns_without_wl = [
-    edge_count_invariant,
-    vertex_count_invariant,
-    rank_invariant,
-    vertex_degree_invariant,
-    global_clustering_invariant,
-    av_length_invariant,
-    graph_diameter_invariant,
-    graph_girth_invariant
+invariant_combinations_with_wl = [{index: func for index, func in (combination.items())} | {len(combination): weisfeiler_lehman_invariant} for combination in invariant_combinations_without_wl]
+invariant_combinations_with_own_wl_one_iteration = [{index: func for index, func in (combination.items())} | {len(combination): own_weisfeiler_leman_one_iteration_invariant} for combination in invariant_combinations_without_wl]
+invariant_combinations_with_own_wl_convergence = [{index: func for index, func in (combination.items())} | {len(combination): own_weisfeiler_leman_convergence_invariant} for combination in invariant_combinations_without_wl]
+only_own_wl_combination = [
+    {
+        0: own_weisfeiler_leman_convergence_invariant
+    },
+    {
+        0: own_weisfeiler_leman_one_iteration_invariant
+    }
 ]
 
-from itertools import combinations
-
-two_tuples = list(combinations(fns_without_wl, 2))
-three_tuples = list(combinations(fns_without_wl, 3))
-four_tuples = list(combinations(fns_without_wl, 4))
-
-all_combinations = two_tuples + three_tuples + four_tuples
-random.shuffle(all_combinations)
-
-executable_combinations = all_combinations[:20]
-with_wl = [combination + (weisfeiler_lehman_invariant,) for combination in all_combinations]
-
-all_combinations = executable_combinations + with_wl
-all_combinations = [{index: func for index, func in enumerate(config)} for config in all_combinations]
-
-invariant_combinations = invariant_combinations_old + all_combinations
+invariant_combinations = invariant_combinations_without_wl + invariant_combinations_with_wl + invariant_combinations_with_own_wl_one_iteration + invariant_combinations_with_own_wl_convergence + only_own_wl_combination
