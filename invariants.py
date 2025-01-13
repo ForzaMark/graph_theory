@@ -78,3 +78,14 @@ def own_weisfeiler_leman_one_iteration_invariant(reaction_center, partition_repr
     representant_center_wl = weisfeiler_leman_one_iteration(partition_representant_reaction_center)["hash"]
 
     return not hash_distribution_has_changed(reaction_center_wl, representant_center_wl)
+
+def extract_vertex_labels(rc):
+    elements = sorted([element for index, element in list(rc.nodes(data="element"))])
+
+    return "".join(elements)
+
+def labeled_vertex_invariant(reaction_center, partition_representant_reaction_center):
+    rc_vertex_label = extract_vertex_labels(reaction_center)
+    partition_representant_vertex_label = extract_vertex_labels(partition_representant_reaction_center)
+
+    return rc_vertex_label == partition_representant_vertex_label

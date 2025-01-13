@@ -87,7 +87,7 @@ if __name__ == "__main__":
                 "wp3": wp3_results,
             }, fp)
 
-    with open('result.json', 'w') as fp:
+    with open('result_vertex_label.json', 'w') as fp:
             json.dump({
                 "wp2": wp2_results,
                 "wp3": wp3_results,

@@ -1,0 +1,2 @@
+- more invariant functions -> somewhere after 3/4 there is an upper limit as they need more time to compute and dont contribute a lot of more clusters
+- unterschied wenn man invariant combination dreht
